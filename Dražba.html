@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veřejná dražba</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .auction { margin: 20px; padding: 20px; border: 1px solid #ccc; }
+        .closed { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="auction">
+        <h1 id="product-name">Produkt: Výzkum 300k</h1>
+        <p id="current-price">Aktuální cena: <span id="price">3</span> <img src="runa.JPG" alt="1 denár" width="30"></p>
+        <p id="last-bidder">Poslední nabídka: <span id="bidder">Nikdo</span></p>
+        <p id="last-bid-time">Čas nabídky: <span id="bid-time">---</span></p>
+        
+        <input type="text" id="nickname" placeholder="Herní přezdívka">
+        <input type="number" id="bid-amount" placeholder="Vaše nabídka" step="0.5" min="10.5">
+        <button onclick="placeBid()">Přihodit</button>
+        <p id="status"></p>
+    </div>
+    <div class="auction">
+        <h1 id="product-name">Produkt: Výzkum 200k</h1>
+        <p id="current-price">Aktuální cena: <span id="price">2</span> <img src="runa.JPG" alt="1 denár" width="30"></p>
+        <p id="last-bidder">Poslední nabídka: <span id="bidder">Nikdo</span></p>
+        <p id="last-bid-time">Čas nabídky: <span id="bid-time">---</span></p>
+        
+        <input type="text" id="nickname" placeholder="Herní přezdívka">
+        <input type="number" id="bid-amount" placeholder="Vaše nabídka" step="0.5" min="10.5">
+        <button onclick="placeBid()">Přihodit</button>
+        <p id="status"></p>
+    </div>
+
+    <script>
+        let currentPrice = 10;
+        let lastBidTime = new Date();
+
+        function placeBid() {
+            const bidInput = document.getElementById("bid-amount");
+            const nicknameInput = document.getElementById("nickname");
+            const bidValue = parseFloat(bidInput.value);
+            const nickname = nicknameInput.value.trim();
+
+            if (!nickname) {
+                alert("Zadejte svou herní přezdívku!");
+                return;
+            }
+
+            if (isNaN(bidValue) || bidValue < currentPrice + 0.5) {
+                alert("Vaše nabídka musí být alespoň o 0.5 vyšší než současná cena!");
+                return;
+            }
+
+            currentPrice = bidValue;
+            lastBidTime = new Date();
+
+            document.getElementById("price").innerText = currentPrice;
+            document.getElementById("bidder").innerText = nickname;
+            document.getElementById("bid-time").innerText = lastBidTime.toLocaleString();
+            document.getElementById("status").innerText = "Nová nabídka přijata!";
+        }
+
+        setInterval(() => {
+            const now = new Date();
+            const timeDiff = (now - lastBidTime) / (1000 * 60 * 60); // Rozdíl v hodinách
+
+            if (timeDiff >= 12) {
+                document.getElementById("status").innerText = "Dražba ukončena.";
+                document.querySelector("button").disabled = true;
+                document.querySelector("#nickname").disabled = true;
+                document.querySelector("#bid-amount").disabled = true;
+                document.querySelector(".auction").classList.add("closed");
+            }
+        }, 60000); // Kontrola každou minutu
+    </script>
+</body>
+</html>
