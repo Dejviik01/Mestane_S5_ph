@@ -11,36 +11,31 @@
     </style>
 </head>
 <body>
-    <div class="auction">
-        <h1 id="product-name">Produkt: Výzkum 300k</h1>
-        <p id="current-price">Aktuální cena: <span id="price">3</span> <img src="runa.JPG" alt="1 denár" width="30"></p>
-        <p id="last-bidder">Poslední nabídka: <span id="bidder">Nikdo</span></p>
-        <p id="last-bid-time">Čas nabídky: <span id="bid-time">---</span></p>
+    <div class="auction" data-product-id="1">
+        <h1>Produkt: Výzkum 300k</h1>
+        <p>Aktuální cena: <span class="price">3</span> <img src="runa.JPG" alt="1 denár" width="30"></p>
+        <p>Poslední nabídka: <span class="bidder">Nikdo</span></p>
+        <p>Čas nabídky: <span class="bid-time">---</span></p>
         
-        <input type="text" id="nickname" placeholder="Herní přezdívka">
-        <input type="number" id="bid-amount" placeholder="Vaše nabídka" step="0.5" min="10.5">
-        <button onclick="placeBid()">Přihodit</button>
-        <p id="status"></p>
+        <input type="text" class="nickname" placeholder="Herní přezdívka">
+        <input type="number" class="bid-amount" placeholder="Vaše nabídka" step="0.5">
+        <button onclick="placeBid(this)">Přihodit</button>
+        <p class="status"></p>
     </div>
-    <div class="auction">
-        <h1 id="product-name">Produkt: Výzkum 200k</h1>
-        <p id="current-price">Aktuální cena: <span id="price">2</span> <img src="runa.JPG" alt="1 denár" width="30"></p>
-        <p id="last-bidder">Poslední nabídka: <span id="bidder">Nikdo</span></p>
-        <p id="last-bid-time">Čas nabídky: <span id="bid-time">---</span></p>
-        
-        <input type="text" id="nickname" placeholder="Herní přezdívka">
-        <input type="number" id="bid-amount" placeholder="Vaše nabídka" step="0.5" min="10.5">
-        <button onclick="placeBid()">Přihodit</button>
-        <p id="status"></p>
-    </div>
+
+    <!-- Další produkty lze přidat stejným způsobem -->
 
     <script>
-        let currentPrice = 10;
-        let lastBidTime = new Date();
+        function placeBid(button) {
+            const auction = button.closest('.auction');
+            const priceElem = auction.querySelector('.price');
+            const bidderElem = auction.querySelector('.bidder');
+            const bidTimeElem = auction.querySelector('.bid-time');
+            const nicknameInput = auction.querySelector('.nickname');
+            const bidInput = auction.querySelector('.bid-amount');
+            const statusElem = auction.querySelector('.status');
 
-        function placeBid() {
-            const bidInput = document.getElementById("bid-amount");
-            const nicknameInput = document.getElementById("nickname");
+            const currentPrice = parseFloat(priceElem.innerText);
             const bidValue = parseFloat(bidInput.value);
             const nickname = nicknameInput.value.trim();
 
@@ -54,27 +49,36 @@
                 return;
             }
 
-            currentPrice = bidValue;
-            lastBidTime = new Date();
+            // Aktualizace UI
+            priceElem.innerText = bidValue;
+            bidderElem.innerText = nickname;
+            bidTimeElem.innerText = new Date().toLocaleString();
+            statusElem.innerText = "Nová nabídka přijata!";
 
-            document.getElementById("price").innerText = currentPrice;
-            document.getElementById("bidder").innerText = nickname;
-            document.getElementById("bid-time").innerText = lastBidTime.toLocaleString();
-            document.getElementById("status").innerText = "Nová nabídka přijata!";
+            // Odeslání dat na Google Sheets přes Apps Script
+            fetch("https://script.google.com/macros/s/AKfycby4cTly53IUpwM7X3p4Z4sa44_d6_Dke1bMjwcE78j4uNAHEoTohOW99ZD6sxkGaGJ0/exec", {  // Nahraď "TVÁ_GS_URL" skutečnou URL
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    productId: auction.getAttribute('data-product-id'),
+                    price: bidValue,
+                    nickname: nickname,
+                    timestamp: new Date().toISOString()  // Přidání časové značky
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    statusElem.innerText = "Příhoz úspěšně uložen!";
+                } else {
+                    statusElem.innerText = "Chyba: " + data.message;
+                }
+            })
+            .catch(error => {
+                console.error("Chyba při odesílání dat:", error);
+                statusElem.innerText = "Chyba při ukládání příhozu.";
+            });
         }
-
-        setInterval(() => {
-            const now = new Date();
-            const timeDiff = (now - lastBidTime) / (1000 * 60 * 60); // Rozdíl v hodinách
-
-            if (timeDiff >= 12) {
-                document.getElementById("status").innerText = "Dražba ukončena.";
-                document.querySelector("button").disabled = true;
-                document.querySelector("#nickname").disabled = true;
-                document.querySelector("#bid-amount").disabled = true;
-                document.querySelector(".auction").classList.add("closed");
-            }
-        }, 60000); // Kontrola každou minutu
     </script>
 </body>
 </html>
