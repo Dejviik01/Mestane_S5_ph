@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Můj web</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Ikona menu -->
+<div id="menu-icon">☰</div>
+
+<!-- Vysouvací menu -->
+<nav id="side-menu">
+    <div class="menu-header">
+        <span>Menu</span>
+        <span id="close-menu">✕</span>
+    </div>
+
+    <div class="menu-content">
+        <div class="chapter">
+            <div class="chapter-title">Kapitola 1</div>
+            <a href="#">Úvod</a>
+            <a href="#">Stránka 1</a>
+        </div>
+
+        <div class="chapter">
+            <div class="chapter-title">Kapitola 2</div>
+            <a href="#">Stránka A</a>
+            <a href="#">Stránka B</a>
+        </div>
+    </div>
+</nav>
+
+<!-- Překryv (klik mimo menu) -->
+<div id="overlay"></div>
+
+<main id="content">
+    <h1>Úvodní stránka</h1>
+    <p>
+        Toto je úvodní stránka, která se zobrazí po otevření webu.
+    </p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Ikona menu */
+#menu-icon {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 26px;
+    cursor: pointer;
+    z-index: 1002;
+}
+
+/* Menu */
+#side-menu {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    background-color: #111;
+    color: white;
+    transition: left 0.3s ease;
+    z-index: 1001;
+}
+
+/* Hlavička menu */
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    border-bottom: 1px solid #333;
+}
+
+#close-menu {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+/* Obsah menu */
+.menu-content {
+    padding: 20px;
+    height: calc(100% - 55px);
+    overflow-y: auto;
+}
+
+/* Kapitoly */
+.chapter {
+    margin-bottom: 20px;
+}
+
+.chapter-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Odkazy */
+.chapter a {
+    display: block;
+    color: #ccc;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-bottom: 6px;
+}
+
+.chapter a:hover {
+    color: white;
+}
+
+/* Overlay */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 1000;
+}
+
+/* Hlavní obsah */
+#content {
+    padding: 80px 40px;
+}
+
+/* Mobil – širší menu */
+@media (max-width: 768px) {
+    #side-menu {
+        width: 80%;
+        max-width: 320px;
+    }
+}
