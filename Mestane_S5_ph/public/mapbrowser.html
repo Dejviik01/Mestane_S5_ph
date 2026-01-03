@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapa serveru</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        header { position: fixed; top: 0; left: 0; width: 100%; background: #333; color: white; z-index: 10; }
+        #menuToggle {
+            display: flex; align-items: center; padding: 10px; cursor: pointer;
+        }
+        #menuToggle span { font-size: 24px; margin-right: 10px; }
+        #menuContent {
+            display: none;
+            position: absolute; top: 50px; left: 0; width: 100%; background: #f4f4f4; color: black;
+            max-height: 300px; overflow-y: auto; padding: 10px;
+        }
+        #menuContent button { display: block; margin: 5px 0; padding: 5px; width: 100%; text-align: left; }
+        main { margin-top: 60px; padding: 20px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 30px; }
+        th, td { border: 1px solid #999; padding: 5px; text-align: center; }
+        th { background-color: #eee; }
+    </style>
+</head>
+<body>
+<header>
+    <div id="menuToggle"><span>☰</span> Menu</div>
+    <div id="menuContent">
+        <strong>Vyber server:</strong>
+        <button data-server="3">Server 3</button>
+        <button data-server="4">Server 4</button>
+        <button data-server="5">Server 5</button>
+        <button data-server="6">Server 6</button>
+        <button data-server="7">Server 7</button>
+    </div>
+</header>
+
+<main id="content">
+    <h1>Vyberte server z menu</h1>
+</main>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const menuContent = document.getElementById('menuContent');
+const content = document.getElementById('content');
+
+// Ovládání menu kliknutím (funguje i na mobilu)
+menuToggle.addEventListener('click', () => {
+    menuContent.style.display = menuContent.style.display === 'block' ? 'none' : 'block';
+});
+
+// Funkce pro načtení dat serveru přes CORS proxy
+// Funkce pro načtení dat serveru přes náš backend
+async function loadServerData(server) {
+    content.innerHTML = '<h1>Načítám data serveru ' + server + '...</h1>';
+    try {
+        // voláme náš backend
+        const res = await fetch(`/api/server?server=${server}`);
+        if (!res.ok) throw new Error('Chyba při načítání dat z backendu');
+        const json = await res.json();
+        const lines = json.data; // pole řádků
+
+        displayTables(lines.join('\n')); // funkce displayTables očekává text
+    } catch(e) {
+        content.innerHTML = '<h1>Chyba při načítání dat</h1>';
+        console.error(e);
+    }
+}
+
+
+// Funkce pro zobrazení kapitol a tabulek
+function displayTables(data) {
+    content.innerHTML = '';
+
+    const chapters = [
+        { title: 'Pily', key: 'wood' },
+        { title: 'Kamenolomy', key: 'stone' },
+        { title: 'Železné doly', key: 'iron' },
+        { title: 'Opuštěná království', key: 'k1>ves' },
+        { title: 'Opuštěné hrady ČB', key: 'ck1>ves' }
+    ];
+
+    chapters.forEach(chap => {
+        const table = document.createElement('table');
+        const thead = document.createElement('thead');
+        thead.innerHTML = `<tr><th>Souřadnice</th><th>[x,y]</th><th>Odkaz</th><th>Vesnice</th></tr>`;
+        table.appendChild(thead);
+
+        const tbody = document.createElement('tbody');
+        const lines = data.split('\n');
+
+        lines.forEach(line => {
+            if (line.includes(chap.key)) {
+                const coordMatch = line.match(/(\d+)\>(\d+)/);
+                if (coordMatch) {
+                    const x = coordMatch[1];
+                    const y = coordMatch[2];
+
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${x}>${y}</td>
+                        <td>[${x},${y}]</td>
+                        <td><a href="https://www.panhradu.cz/main.aspx?x=${x}&y=${y}" target="_blank">Otevřít</a></td>
+                        <td>${line.includes('ves') ? 'ANO' : 'NE'}</td>
+                    `;
+                    tbody.appendChild(row);
+                }
+            }
+        });
+
+        if (tbody.children.length > 0) {
+            table.appendChild(tbody);
+            const h2 = document.createElement('h2');
+            h2.textContent = chap.title;
+            content.appendChild(h2);
+            content.appendChild(table);
+        }
+    });
+}
+
+// Při kliknutí na server v menu
+menuContent.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const server = btn.getAttribute('data-server');
+        loadServerData(server);
+    });
+});
+</script>
+</body>
+</html>
