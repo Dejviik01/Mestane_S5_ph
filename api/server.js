@@ -2,15 +2,14 @@ import fetch from "node-fetch";
 import iconv from "iconv-lite";
 
 export default async function handler(req, res) {
-  const server = req.query.server;
+  const serverId = req.query.server;
 
-  if (!server || !["3", "4", "5", "6", "7"].includes(server)) {
+  if (!serverId || !["3", "4", "5", "6", "7"].includes(serverId)) {
     res.status(400).json({ error: "Neplatný server" });
     return;
   }
 
-  const res = await fetch(`https://ph-tools-backend-psm4.vercel.app/api/server?server=${server}`);
-
+  const url = `https://ph-tools-backend-psm4.vercel.app/api/server?server=${serverId}`;
 
   try {
     const response = await fetch(url, {
@@ -22,10 +21,8 @@ export default async function handler(req, res) {
     const buffer = Buffer.from(await response.arrayBuffer());
     const text = iconv.decode(buffer, "windows-1250");
 
-    // odebrat \r a rozdělit na řádky
     const lines = text.replace(/\r/g,'').split('\n');
 
-    // vrátit JSON s polem řádků
     res.setHeader("Content-Type", "application/json; charset=utf-8");
     res.status(200).json({ data: lines });
 
