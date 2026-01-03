@@ -60,7 +60,7 @@ body, html {
 #side-menu {
     position: fixed;
     top: 0;
-    right: -350px;
+    right: -250px; /* stejná hodnota jako šířka menu */
     width: 250px;
     height: 100%;
     background: #fff;
