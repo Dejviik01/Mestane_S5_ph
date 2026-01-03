@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie obrázků</title>
+    <style>
+        /* Styly pro malé obrázky */
+        .thumbnail {
+            width: 500px; /* Šířka zmenšených obrázků */
+            height: auto;
+            cursor: pointer; /* Změní kurzor na ruku */
+            margin: 5px;
+            transition: transform 0.2s; /* Efekt zvětšení při najetí */
+        }
+
+        .thumbnail:hover {
+            transform: scale(1.1); /* Zvětšení při najetí */
+        }
+
+        /* Styly pro zvětšený obrázek */
+        .modal {
+            display: none; /* Skrývá zvětšený obrázek na začátku */
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            overflow-y: auto;
+            text-align: center;
+        }
+
+        .modal-content {
+            margin-top: 50px;
+            max-width: 90%;
+            max-height: 90vh; 
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Aktuální soutěže</h1>
+<div class="gallery">
+    <img src="vscode/obrázky/soutěž v uplácení.JPG" alt="Obrázek 1" class="thumbnail" onclick="openModal(this)">
+    <img src="vscode/obrázky/Dámská přehlídka.JPG" alt="Obrázek 1" class="thumbnail" onclick="openModal(this)">
+    <img src="vscode/obrázky/Mikulášský bál.JPG" alt="Obrázek 1" class="thumbnail" onclick="openModal(this)">
+    <!-- Přidej více obrázků dle potřeby -->
+</div>
+
+<!-- Modalní okno pro zobrazení velkého obrázku -->
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+    function openModal(img) {
+        var modal = document.getElementById("myModal");
+        var modalImg = document.getElementById("modalImage");
+        modal.style.display = "block";
+        modalImg.src = img.src;
+    }
+
+    function closeModal() {
+        var modal = document.getElementById("myModal");
+        modal.style.display = "none";
+    }
+</script>
+
+</body>
+</html>

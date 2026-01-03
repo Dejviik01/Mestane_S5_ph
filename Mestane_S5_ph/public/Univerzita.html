@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Univerzita Level 1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Univerzita Level 1</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Odhalení</th>
+            <th>Vyzkoumání</th>
+            <th>Vynález</th>
+            <th>Funkce</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>4.000</td><td>20.000</td><td>Dřevo za 6</td><td>Na tržišti jde prodat dřevo s výhodným kurzem 6 zlatých za jedno dřevo.</td></tr>
+        <tr><td>4.000</td><td>20.000</td><td>Kámen za 6</td><td>Na tržišti jde prodat kámen s výhodným kurzem 6 zlatých za jeden kámen.</td></tr>
+        <tr><td>4.000</td><td>20.000</td><td>Železo za 6</td><td>Na tržišti jde prodat železo s výhodným kurzem 6 zlatých za jedno železo.</td></tr>
+        <tr><td>6.000</td><td>30.000</td><td>Léčitel 3H</td><td>Léčitel v kostele má po najmutí hodnost 3.</td></tr>
+        <tr><td>6.000</td><td>30.000</td><td>Pila na kamenolom</td><td>Možno v hradu přestavet pilu na kamenolom a zpět.</td></tr>
+        <tr><td>10.000</td><td>50.000</td><td>Jídlo za 10</td><td>Na tržišti jde koupit jídlo s výhodným kurzem jedno jídlo za 10 zlatých.</td></tr>
+        <tr><td>10.000</td><td>50.000</td><td>Dřevo za 10</td><td>Na tržišti jde koupit dřevo s výhodným kurzem jedno dřevo za 10 zlatých.</td></tr>
+        <tr><td>10.000</td><td>50.000</td><td>Kámen za 10</td><td>Na tržišti jde koupit kámen s výhodným kurzem jeden kámen za 10 zlatých.</td></tr>
+        <tr><td>12.000</td><td>60.000</td><td>Zbrojnoš +1H</td><td>Zbrojnoš z kasáren bude mít po naverbování hodnost o +1 vyšší.</td></tr>
+        <tr><td>12.000</td><td>60.000</td><td>Šermíř +1H</td><td>Šermíř z kasáren bude mít po naverbování hodnost o +1 vyšší.</td></tr>
+        <tr><td>12.000</td><td>60.000</td><td>Střelec +1H</td><td>Střelec ze střelnice bude mít po naverbování hodnost o +1 vyšší.</td></tr>
+        <tr><td>12.000</td><td>60.000</td><td>Kamenolom IV.</td><td>Umožní vylepšovat kamenolom na 4. level. Produkce je 6 kamenů a hromada 8000.</td></tr>
+        <tr><td>12.000</td><td>60.000</td><td>Pila na železný důl</td><td>Možno v hradu přestavet pilu na železný důl a zpět.</td></tr>
+        <tr><td>14.000</td><td>70.000</td><td>Železo za 10</td><td>Na tržišti jde koupit železo s výhodným kurzem jedno železo za 10 zlatých.</td></tr>
+        <tr><td>14.000</td><td>70.000</td><td>Tržiště +10K</td><td>Zvýší limit obchodování na tržišti o +10 000 zlatých. Od půlnoci.</td></tr>
+        <tr><td>14.000</td><td>70.000</td><td>Železný důl IV.</td><td>Umožní vylepšovat železný důl na 4. level. Produkce je 6 železa a hromada 8000.</td></tr>
+        <tr><td>16.000</td><td>80.000</td><td>Pila IV.</td><td>Umožní vylepšovat pilu na 4. level. Produkce je 4 dřeva a hromada 8000.</td></tr>
+        <tr><td>16.000</td><td>80.000</td><td>Placený výzkum I.</td><td>Po odhaleném vynálezu za kredity je 10% již vyzkoumáno. Levely se sčítají.</td></tr>
+        <tr><td>16.000</td><td>80.000</td><td>Opraváři I.</td><td>Možno opravovat najednou 7 staveb místo 5.</td></tr>
+        <tr><td>20.000</td><td>100.000</td><td>Zbrojnoš +2H</td><td>Zbrojnoš z kasáren bude mít po naverbování hodnost o +2 vyšší.</td></tr>
+        <tr><td>20.000</td><td>100.000</td><td>Přesný katapult I.</td><td>Zvýší přesnost veškerých střel katapultu o 30%.</td></tr>
+        <tr><td>24.000</td><td>120.000</td><td>Střelec +2H</td><td>Střelec ze střelnice bude mít po naverbování hodnost o +2 vyšší.</td></tr>
+        <tr><td>24.000</td><td>120.000</td><td>Dostřel katapultů I.</td><td>Zvýší dostřel katapultů o +3 pole.</td></tr>
+        <tr><td>26.000</td><td>130.000</td><td>Výkrm prasat</td><td>Umožní vykrmit jídlem kňoura na obří mega-prase velké 2×2 pole.</td></tr>
+        <tr><td>30.000</td><td>150.000</td><td>Tržiště +20K</td><td>Zvýší limit obchodování na tržišti o +20 000 zlatých. Od půlnoci.</td></tr>
+        <tr><td>30.000</td><td>150.000</td><td>Úplatkář I.</td><td>Šance na uplacení jednotek +10%. Možno sčítat s dalšími levely.</td></tr>
+        <tr><td>60.000</td><td>300.000</td><td>Úplatkář II.</td><td>Šance na uplacení jednotek +20%. Možno sčítat s dalšími levely.</td></tr>
+    </tbody>
+</table>
+<h1>UNIVERZITA LEVEL 2</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Odhalení</th>
+                <th>Vyzkoumání</th>
+                <th>Vynález</th>
+                <th>Funkce</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>6.000</td><td>30.000</td><td>Léčitel 3H</td><td>Léčitel v kostele má po najmutí hodnost 3.</td></tr>
+            <tr><td>6.000</td><td>30.000</td><td>Pila na kamenolom</td><td>Možno v hradu přestavět pilu na kamenolom a zpět.</td></tr>
+            <tr><td>10.000</td><td>50.000</td><td>Dřevo za 8</td><td>Na tržišti jde prodat dřevo s výhodným kurzem 8 zlatých za jedno dřevo.</td></tr>
+            <tr><td>10.000</td><td>50.000</td><td>Kámen za 8</td><td>Na tržišti jde prodat kámen s výhodným kurzem 8 zlatých za jeden kámen.</td></tr>
+            <tr><td>10.000</td><td>50.000</td><td>Železo za 8</td><td>Na tržišti jde prodat železo s výhodným kurzem 8 zlatých za jedno železo.</td></tr>
+            <tr><td>12.000</td><td>60.000</td><td>Kamenolom IV.</td><td>Umožní vylepšovat kamenolom na 4. level. Produkce je 6 kamenů a hromada 8000.</td></tr>
+            <tr><td>12.000</td><td>60.000</td><td>Pila na železný důl</td><td>Možno v hradu přestavět pilu na železný důl a zpět.</td></tr>
+            <tr><td>14.000</td><td>70.000</td><td>Tržiště +10K</td><td>Zvýší limit obchodování na tržišti o +10 000 zlatých. Od půlnoci.</td></tr>
+            <tr><td>14.000</td><td>70.000</td><td>Železný důl IV.</td><td>Možno vylepšit železný důl na 4. level. Produkce je 6 železa a hromada 8000.</td></tr>
+            <tr><td>16.000</td><td>80.000</td><td>Pila IV.</td><td>Umožní vylepšovat pilu na 4. level. Produkce je 4 dřeva a hromada 8000.</td></tr>
+            <tr><td>16.000</td><td>80.000</td><td>Placený výzkum I.</td><td>Po odhaleném vynálezu za kredity je 10% již vyzkoumáno. Levely se sčítají.</td></tr>
+            <tr><td>16.000</td><td>80.000</td><td>Opraváři I.</td><td>Možno opravovat najednou 7 staveb místo 5.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Jídlo za 8</td><td>Na tržišti jde prodat jídlo s výhodným kurzem 8 zlatých za jedno jídlo.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Dřevo za 10</td><td>Na tržišti jde prodat dřevo s výhodným kurzem 10 zlatých za jedno dřevo.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Kámen za 10</td><td>Na tržišti jde prodat kámen s výhodným kurzem 10 zlatých za jeden kámen.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Železo za 10</td><td>Na tržišti jde prodat železo s výhodným kurzem 10 zlatých za jedno železo.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Jídlo za 8</td><td>Na tržišti jde koupit jídlo s výhodným kurzem jedno jídlo za 8 zlatých.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Dřevo za 8</td><td>Na tržišti jde koupit dřevo s výhodným kurzem jedno dřevo za 8 zlatých.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Šermíř +2H</td><td>Šermíř z kasáren bude mít po naverbování hodnost o +2 vyšší.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Přesný katapult I.</td><td>Zvýší přesnost veškerých střel katapultu o 30%.</td></tr>
+            <tr><td>20.000</td><td>100.000</td><td>Dělo I.</td><td>Dělo střílí kamenné koule na okolní mapy. Dostřel je 7 map.</td></tr>
+            <tr><td>24.000</td><td>120.000</td><td>Kámen za 8</td><td>Na tržišti jde koupit kámen s výhodným kurzem jeden kámen za 8 zlatých.</td></tr>
+            <tr><td>24.000</td><td>120.000</td><td>Dostřel katapultů I.</td><td>Zvýší dostřel katapultů o +3 pole.</td></tr>
+            <tr><td>24.000</td><td>120.000</td><td>Bílý templář<o/td><td>Umožní verbovat templáře z kostela. Zabere jedno místo.td></tr>
+            <tr><td>26.000</td><td>130.000</td><td>Železo za 8</td><td>Na tržišti jde koupit železo s výhodným kurzem jedno železo za 8 zlatých.</td></tr>
+            <tr><td>26.000</td><td>130.000</td><td>Léčitel 5H</td><td>Léčitel v kostele má po najmutí hodnost 5.</td></tr>
+            <tr><td>26.000</td><td>130.000</td><td>Výkrm prasat</td><td>Umožní vykrmit jídlem kňoura na obří mega-prase velké 2×2 pole.</td></tr>
+            <tr><td>30.000</td><td>150.000</td><td>Tržiště +20K</td><td>Zvýší limit obchodování na tržišti o +20 000 zlatých. Od půlnoci.</td></tr>
+            <tr><td>30.000</td><td>150.000</td><td>Úplatkář I.</td><td>Šance na uplacení jednotek +10%. Možno sčítat s dalšími levely.</td></tr>
+            <tr><td>32.000</td><td>160.000</td><td>Opraváři II.</td><td>Možno opravovat najednou 9 staveb místo 5.</td></tr>
+            <tr><td>36.000</td><td>180.000</td><td>Jídlo za 6</td><td>Na tržišti jde koupit jídlo s výhodným kurzem jedno jídlo za 6 zlatých.</td></tr>
+            <tr><td>36.000</td><td>180.000</td><td>Dřevo za 6</td><td>Na tržišti jde koupit dřevo s výhodným kurzem jedno dřevo za 6 zlatých.</td></tr>
+            <tr><td>36.000</td><td>180.000</td><td>Kámen za 6</td><td>Na tržišti jde koupit kámen s výhodným kurzem jeden kámen za 6 zlatých.</td></tr>
+            <tr><td>36.000</td><td>180.000</td><td>Střelec +3H</td><td>Střelec ze střelnice bude mít po naverbování hodnost o +3 vyšší.</td></tr>
+            <tr><td>36.000</td><td>180.000</td><td>Maruška ze statku</td><td>Ve statku možno najímat Marušku rovnou na 9. levelu.</td></tr>
+            <tr><td>40.000</td><td>200.000</td><td>Tržiště +30K</td><td>Zvýší limit obchodování na tržišti o +30 000 zlatých. Od půlnoci.</td></tr>
+            <tr><td>40.000</td><td>200.000</td><td>Studna level 3</td><td>Umožní vylepšovat studny až na 3. level. Voda pro 12 obyvatel.</td></tr>
+            <tr><td>40.000</td><td>200.000</td><td>Přesný katapult II.</td><td>Zvýší přesnost veškerých střel katapultu o 50%.</td></tr>
+            <tr><td>40.000</td><td>200.000</td><td>Past</td><td>Stavitel na 9. levelu umí postavit kůlovou past.</td></tr>
+            <tr><td>44.000</td><td>220.000</td><td>Železo za 6</td><td>Na tržišti jde koupit železo s výhodným kurzem jedno železo za 6 zlatých.</td></tr>
+            <tr><td>44.000</td><td>220.000</td><td>Dostřel katapultů II.</td><td>Zvýší dostřel katapultů o +13 polí.</td></tr>
+            <tr><td>48.000</td><td>240.000</td><td>Střelec +4H</td><td>Střelec ze střelnice bude mít po naverbování hodnost o +4 vyšší.</td></tr>
+            <tr><td>60.000</td><td>300.000</td><td>Zbrojnoš +3H</td><td>Zbrojnoš z kasáren bude mít po naverbování hodnost o +3 vyšší.</td></tr>
+            <tr><td>60.000</td><td>300.000</td><td>Úplatkář II.</td><td>Šance na uplacení jednotek +20%. Možno sčítat s dalšími levely.</td></tr>
+            <tr><td>70.000</td><td>350.000</td><td>Ohnivá střela</td><td>Katapult umožní střílet ohnivé střely 3×3.</td></tr>
+            <tr><td>70.000</td><td>350.000</td><td>Ocelová koule</td><td>Katapult umožní střílet ocelovou kouli 1×1.</td></tr>
+            <tr><td>70.000</td><td>350.000</td><td>Placený výzkum I.</td><td>Po odhaleném vynálezu za kredity je 20% již vyzkoumáno. Levely se sčítají.</td></tr>
+            <tr><td>90.000</td><td>450.000</td><td>Úplatkář III.</td><td>Šance na uplacení jednotek +30%. Možno sčítat s dalšími levely.</td></tr>
+            <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Červený šermíř</td>
+          <td>V kasárnách jde verbovat červený šermíř.</td>
+        </tr>
+            
+        </tbody>
+    </table>
+    <h1>UNIVERZITA LEVEL 3</h1>
+    <table>
+        <tr>
+          <th>Odhalení</th>
+          <th>Vyzkoumání</th>
+          <th>Vynález</th>
+          <th>Funkce</th>
+        </tr>
+        <tr>
+          <td>12.000</td>
+          <td>60.000</td>
+          <td>Kamenolom IV.</td>
+          <td>Umožní vylepšovat kamenolom na 4. level. Produkce je 6 kamenů a hromada 8000.</td>
+        </tr>
+        <tr>
+          <td>14.000</td>
+          <td>70.000</td>
+          <td>Železný důl IV.</td>
+          <td>Umožní vylepšovat železný důl na 4. level. Produkce je 6 železa a hromada 8000.</td>
+        </tr>
+        <tr>
+          <td>16.000</td>
+          <td>80.000</td>
+          <td>Pila IV.</td>
+          <td>Umožní vylepšovat pilu na 4. level. Produkce je 4 dřeva a hromada 8000.</td>
+        </tr>
+        <tr>
+          <td>20.000</td>
+          <td>100.000</td>
+          <td>Dřevo za 10</td>
+          <td>Na tržišti jde prodat dřevo s výhodným kurzem 10 zlatých za jedno dřevo.</td>
+        </tr>
+        <tr>
+          <td>20.000</td>
+          <td>100.000</td>
+          <td>Kámen za 10</td>
+          <td>Na tržišti jde prodat kámen s výhodným kurzem 10 zlatých za jeden kámen.</td>
+        </tr>
+        <tr>
+          <td>20.000</td>
+          <td>100.000</td>
+          <td>Železo za 10</td>
+          <td>Na tržišti jde prodat železo s výhodným kurzem 10 zlatých za jedno železo.</td>
+        </tr>
+        <tr>
+          <td>20.000</td>
+          <td>100.000</td>
+          <td>Dělo I.</td>
+          <td>Dělo střílí kamenné koule na okolní mapy. Dostřel je 7 map.</td>
+        </tr>
+        <tr><td>24.000</td><td>120.000</td><td>Bílý templář<o/td><td>Umožní verbovat templáře z kostela. Zabere jedno místo.</tr>
+        <tr>
+          <td>26.000</td>
+          <td>130.000</td>
+          <td>Léčitel 5H</td>
+          <td>Léčitel v kostele má po najmutí hodnost 5.</td>
+        </tr>
+        <tr>
+          <td>26.000</td>
+          <td>130.000</td>
+          <td>Výkrm prasat</td>
+          <td>Umožní vykrmit jídlem kňoura na obří mega-prase velké 2×2 pole.</td>
+        </tr>
+        <tr>
+          <td>30.000</td>
+          <td>150.000</td>
+          <td>Dům level 9</td>
+          <td>Umožní vylepšovat domy až na 9. level. Zvýší kapacitu +2 obyvatele.</td>
+        </tr>
+        <tr>
+          <td>30.000</td>
+          <td>150.000</td>
+          <td>Dělo II.</td>
+          <td>Dělo střílí kamenné koule na okolní mapy. Dostřel je 10 map.</td>
+        </tr>
+        <tr>
+          <td>32.000</td>
+          <td>160.000</td>
+          <td>Léčitel 7H</td>
+          <td>Léčitel v kostele má po najmutí hodnost 7.</td>
+        </tr>
+        <tr>
+          <td>32.000</td>
+          <td>160.000</td>
+          <td>Opraváři II.</td>
+          <td>Možno opravovat najednou 9 staveb místo 5.</td>
+        </tr>
+        <tr>
+          <td>36.000</td>
+          <td>180.000</td>
+          <td>Jídlo za 6</td>
+          <td>Na tržišti jde koupit jídlo s výhodným kurzem jedno jídlo za 6 zlatých.</td>
+        </tr>
+        <tr>
+          <td>36.000</td>
+          <td>180.000</td>
+          <td>Dřevo za 6</td>
+          <td>Na tržišti jde koupit dřevo s výhodným kurzem jedno dřevo za 6 zlatých.</td>
+        </tr>
+        <tr>
+          <td>36.000</td>
+          <td>180.000</td>
+          <td>Maruška ze statku</td>
+          <td>Ve statku možno najímat Marušku rovnou na 9. levelu.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Jídlo za 10</td>
+          <td>Na tržišti jde prodat jídlo s výhodným kurzem 10 zlatých za jedno jídlo.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Tržiště +30K</td>
+          <td>Zvýší limit obchodování na tržišti o +30 000 zlatých. Od půlnoci.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Druid</td>
+          <td>V kostele jde verbovat také Druid. Je lepší v boji i léčení než léčitel.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Studna level 3</td>
+          <td>Umožní vylepšovat studny až na 3. level. Voda pro 12 obyvatel.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Přesný katapult II.</td>
+          <td>Zvýší přesnost veškerých střel katapultu o 50%.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Dělo III.</td>
+          <td>Dělo střílí kamenné koule či kartáčové střely na okolní mapy. Dostřel je 15 map.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Past</td>
+          <td>Stavitel na 9. levelu umí postavit kůlovou past.</td>
+        </tr>
+        <tr>
+            <td>42.000</td>
+            <td>210.000</td>
+            <td>Kámen za 6</td>
+            <td>Na tržišti jde koupit kámen s výhodným kurzem jeden kámen za 6 zlatých.</td>
+          </tr>
+          <tr>
+            <td>44.000</td>
+            <td>220.000</td>
+            <td>Železo za 6</td>
+            <td>Na tržišti jde koupit železo s výhodným kurzem jedno železo za 6 zlatých.</td>
+          </tr>
+          <tr>
+            <td>44.000</td>
+            <td>220.000</td>
+            <td>Dostřel katapultů II.</td>
+            <td>Zvýší dostřel katapultů o +13 polí.</td>
+          </tr>
+          <tr>
+            <td>48.000</td>
+            <td>240.000</td>
+            <td>Střelec +4H</td>
+            <td>Střelec ze střelnice bude mít po naverbování hodnost o +4 vyšší.</td>
+          </tr>
+            <td>48.000</td>
+            <td>240.000</td>
+            <td>Dva bílí templáři</td>
+            <td>Umožní verbovat 2 templáře z jednoho kostela</td>
+          </tr>
+          <tr>
+            <td>50.000</td>
+            <td>250.000</td>
+            <td>Dělo IV.</td>
+            <td>Dělo střílí kamenné koule či kartáčové střely na okolní mapy. Dostřel je 20 map. Stavitel na 9. hodnosti může postavit jen jedno dělo na dané mapě v 8. levelu hradu, ve vesnici nelze.</td>
+          </tr>
+          <td>52.000</td>
+            <td>260.000</td>
+            <td>Zelený portálek</td>
+            <td>Umožní staviteli na hodnosti 9 postavit zelený portálek u tvého hradu či vesnice </td>
+          </tr>
+          <tr>
+            <td>60.000</td>
+            <td>300.000</td>
+            <td>Tržiště +50K</td>
+            <td>Zvýší limit obchodování na tržišti o +50 000 zlatých. Od půlnoci.</td>
+          </tr>
+          <tr>
+            <td>60.000</td>
+            <td>300.000</td>
+            <td>Šermíř +3H</td>
+            <td>Šermíř z kasáren bude mít po naverbování hodnost o +3 vyšší.</td>
+          </tr>
+          <tr>
+            <td>60.000</td>
+            <td>300.000</td>
+            <td>Úplatkář II.</td>
+            <td>Šance na uplacení jednotek +20%. Možno sčítat s dalšími levely.</td>
+          </tr>
+          <tr>
+            <td>70.000</td>
+            <td>350.000</td>
+            <td>Jídlo za 12</td>
+            <td>Na tržišti jde prodat jídlo s výhodným kurzem 12 zlatých za jedno jídlo.</td>
+          </tr>
+          <tr>
+            <td>70.000</td>
+            <td>350.000</td>
+            <td>Ohnivá střela</td>
+            <td>Katapult umožní střílet ohnivé střely 3×3.</td>
+          </tr>
+          <tr>
+            <td>70.000</td>
+            <td>350.000</td>
+            <td>Ocelová koule</td>
+            <td>Katapult umožní střílet ocelovou kouli 1×1.</td>
+          </tr>
+          <tr>
+            <td>70.000</td>
+            <td>350.000</td>
+            <td>Placený výzkum I.</td>
+            <td>Po odhaleném vynálezu za kredity je 20% již vyzkoumáno. Levely se sčítají.</td>
+          </tr>
+          <tr>
+            <td>80.000</td>
+            <td>400.000</td>
+            <td>Zbrojnoš +4H</td>
+            <td>Zbrojnoš z kasáren bude mít po naverbování hodnost o +4 vyšší.</td>
+          </tr>
+          <tr>
+            <td>80.000</td>
+            <td>400.000</td>
+            <td>Šermíř +4H</td>
+            <td>Šermíř z kasáren bude mít po naverbování hodnost o +4 vyšší.</td>
+          </tr>
+          <tr>
+            <td>80.000</td>
+            <td>400.000</td>
+            <td>Střelec +5H</td>
+            <td>Střelec ze střelnice bude mít po naverbování hodnost o +5 vyšší.</td>
+          </tr>
+          <tr>
+            <td>80.000</td>
+            <td>400.000</td>
+            <td>Statek III.</td>
+            <td>Umožní stavět 3. level statku. Lze najmout dvě selky na jednom statku.</td>
+          </tr>
+          <tr>
+            <td>80.000</td>
+            <td>400.000</td>
+            <td>Pila na farmu</td>
+            <td>Možno v hradu přestavět pilu na farmu a zpět.</td>
+          </tr>
+          <tr>
+            <td>90.000</td>
+            <td>450.000</td>
+            <td>Úplatkář III.</td>
+            <td>Šance na uplacení jednotek +30%. Možno sčítat s dalšími levely.</td>
+          </tr>
+          <tr>
+            <td>100.000</td>
+            <td>500.000</td>
+            <td>Zbrojnoš +5H</td>
+            <td>Zbrojnoš z kasáren bude mít po naverbování hodnost o +5 vyšší.</td>
+          </tr>
+          <tr>
+            <td>100.000</td>
+            <td>500.000</td>
+            <td>Šermíř +5H</td>
+            <td>Šermíř z kasáren bude mít po naverbování hodnost o +5 vyšší.</td>
+          </tr>
+          <tr>
+            <td>100.000</td>
+            <td>500.000</td>
+            <td>Modrý zbrojnoš</td>
+            <td>V kasárnách jde verbovat modrý zbrojnoš.</td>
+          </tr>
+          <tr>
+            <td>120.000</td>
+            <td>600.000</td>
+            <td>Modrý střelec</td>
+            <td>Ve střelnici jde verbovat modrý střelec.</td>
+          </tr>
+          <tr>
+            <td>120.000</td>
+            <td>600.000</td>
+            <td>Úplatkář IV.</td>
+            <td>Šance na uplacení jednotek +40%. Možno sčítat s dalšími levely.</td>
+          </tr>
+          <tr>
+            <td>120.000</td>
+            <td>600.000</td>
+            <td>Dva katapulty</td>
+            <td>Umožní staviteli postavit u hradu i vesnic druhý katapult.</td>
+          </tr>
+          <tr>
+            <td>120.000</td>
+            <td>600.000</td>
+            <td>Děvečka ze statku</td>
+            <td>V každém statku jde navíc najmout ještě jedna selka.</td>
+          </tr>
+      </table>
+      <h1>UNIVERZITA LEVEL 4</h1>
+      <table>
+        <tr>
+          <th>Odhalení</th>
+          <th>Vyzkoumání</th>
+          <th>Vynález</th>
+          <th>Funkce</th>
+        </tr>
+        <tr>
+          <td>30.000</td>
+          <td>150.000</td>
+          <td>Dům level 9</td>
+          <td>Umožní vylepšovat domy až na 9. level. Zvýší kapacitu +2 obyvatele.</td>
+        </tr>
+        <tr>
+          <td>30.000</td>
+          <td>150.000</td>
+          <td>Dělo II.</td>
+          <td>Dělo střílí kamenné koule na okolní mapy. Dostřel je 10 map. Stavitel na 9. hodnosti může postavit jen jedno dělo na dané mapě v 6. levelu hradu či vesnice.</td>
+        </tr>
+        <tr>
+          <td>32.000</td>
+          <td>160.000</td>
+          <td>Léčitel 7H</td>
+          <td>Léčitel v kostele má po najmutí hodnost 7.</td>
+        </tr>
+        <tr>
+          <td>36.000</td>
+          <td>180.000</td>
+          <td>Maruška ze statku</td>
+          <td>Ve statku možno najímat Marušku rovnou na 9. levelu.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Druid</td>
+          <td>V kostele jde verbovat také Druid. Je lepší v boji i léčení než léčitel.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Studna level 3</td>
+          <td>Umožní vylepšovat studny až na 3. level. Voda pro 12 obyvatel.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Dělo III.</td>
+          <td>Dělo střílí kamenné koule či kartáčové střely na okolní mapy. Dostřel je 15 map. Stavitel na 9. hodnosti může postavit jen jedno dělo na dané mapě v 6. levelu hradu či vesnice.</td>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Past</td>
+          <td>Stavitel na 9. levelu umí postavit kůlovou past.</td>
+        </tr>
+        <tr>
+            <td>48.000</td>
+            <td>240.000</td>
+            <td>Dva bílí templáři</td>
+            <td>Umožní verbovat 2 templáře z jednoho kostela</td>
+          </tr>
+        <tr>
+          <td>50.000</td>
+          <td>250.000</td>
+          <td>Dělo IV.</td>
+          <td>Dělo střílí kamenné koule či kartáčové střely na okolní mapy. Dostřel je 20 map. Stavitel na 9. hodnosti může postavit jen jedno dělo na dané mapě v 8. levelu hradu, ve vesnici nelze.</td>
+        </tr>
+        <tr>
+            <td>52.000</td>
+            <td>260.000</td>
+            <td>Zelený portálek</td>
+            <td>Umožní staviteli na hodnosti 9 postavit zelený portálek u tvého hradu či vesnice </td>
+          </tr>
+        <tr>
+          <td>60.000</td>
+          <td>300.000</td>
+          <td>Tržiště +50K</td>
+          <td>Zvýší limit obchodování na tržišti o +50 000 zlatých. Od půlnoci.</td>
+        </tr>
+        <tr>
+          <td>60.000</td>
+          <td>300.000</td>
+          <td>Fara u kostela</td>
+          <td>Fara rozšíří kostel a to umožní, aby v něm bydleli dva léčitelé.</td>
+        </tr>
+        <tr>
+          <td>70.000</td>
+          <td>350.000</td>
+          <td>Jídlo za 12</td>
+          <td>Na tržišti jde prodat jídlo s výhodným kurzem 12 zlatých za jedno jídlo.</td>
+        </tr>
+        <tr>
+          <td>70.000</td>
+          <td>350.000</td>
+          <td>Ohnivá střela</td>
+          <td>Katapult umožní střílet ohnivé střely 3×3.</td>
+        </tr>
+        <tr>
+          <td>70.000</td>
+          <td>350.000</td>
+          <td>Ocelová koule</td>
+          <td>Katapult umožní střílet ocelovou kouli 1×1.</td>
+        </tr>
+        <tr>
+          <td>80.000</td>
+          <td>400.000</td>
+          <td>Tržiště +100K</td>
+          <td>Zvýší limit obchodování na tržišti o +100 000 zlatých. Od půlnoci.</td>
+        </tr>
+        <tr>
+          <td>80.000</td>
+          <td>400.000</td>
+          <td>Střelec +5H</td>
+          <td>Střelec ze střelnice bude mít po naverbování hodnost o +5 vyšší.</td>
+        </tr>
+        <tr>
+          <td>80.000</td>
+          <td>400.000</td>
+          <td>Statek III.</td>
+          <td>Umožní stavět 3. level statku. Lze najmout dvě selky na jednom statku.</td>
+        </tr>
+        <tr>
+          <td>80.000</td>
+          <td>400.000</td>
+          <td>Pila na farmu</td>
+          <td>Možno v hradu přestavet pilu na farmu a zpět.</td>
+        </tr>
+        <tr>
+          <td>90.000</td>
+          <td>450.000</td>
+          <td>Úplatkář III.</td>
+          <td>Šance na uplacení jednotek +30%. Možno sčítat s dalšími levely.</td>
+        </tr>
+        <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Zbrojnoš +5H</td>
+          <td>Zbrojnoš z kasáren bude mít po naverbování hodnost o +5 vyšší.</td>
+        </tr>
+        <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Šermíř +5H</td>
+          <td>Šermíř z kasáren bude mít po naverbování hodnost o +5 vyšší.</td>
+        </tr>
+        <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Modrý zbrojnoš</td>
+          <td>V kasárnách jde verbovat modrý zbrojnoš.</td>
+        </tr>
+        <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Červený šermíř</td>
+          <td>V kasárnách jde verbovat červený šermíř.</td>
+        </tr>
+        <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Velká fara</td>
+          <td>Velká fara rozšíří kostel a to umožní, aby v něm bydleli tři léčitelé.</td>
+        </tr>
+        <tr>
+          <td>120.000</td>
+          <td>600.000</td>
+          <td>Modrý střelec</td>
+          <td>Ve střelnici jde verbovat modrý střelec.</td>
+        </tr>
+        <tr>
+          <td>120.000</td>
+          <td>600.000</td>
+          <td>Úplatkář IV.</td>
+          <td>Šance na uplacení jednotek +40%. Možno sčítat s dalšími levely.</td>
+        </tr>
+        <tr>
+          <td>120.000</td>
+          <td>600.000</td>
+          <td>Dva katapulty</td>
+          <td>Umožní staviteli postavit u hradu i vesnic druhý katapult.</td>
+        </tr>
+        <tr>
+          <td>120.000</td>
+          <td>600.000</td>
+          <td>Děvečka ze statku</td>
+          <td>V každém statku jde navíc najmout ještě jedna selka.</td>
+        </tr>
+        <tr>
+          <td>120.000</td>
+          <td>600.000</td>
+          <td>Zasouvací past</td>
+          <td>Stavitel na 9. levelu umí postavit zasouvací past.</td>
+        </tr>
+        <tr>
+          <td>150.000</td>
+          <td>750.000</td>
+          <td>Úplatkář V.</td>
+          <td>Šance na uplacení jednotek +50%. Možno sčítat s dalšími levely.</td>
+        </tr>
+        <tr>
+          <td>200.000</td>
+          <td>1.000.000</td>
+          <td>Šermíři dvojčata</td>
+          <td>V kasárnách jdou verbovat šermíři dvojčata.</td>
+        </tr>
+      </table>
+      <h1>UNIVERZITA LEVEL 5</h1>
+      <table>
+        <tr>
+          <th>Odhalení</th>
+          <th>Vyzkoumání</th>
+          <th>Vynález</th>
+          <th>Funkce</th>
+        </tr>
+        <tr>
+          <td>40.000</td>
+          <td>200.000</td>
+          <td>Dělo III.</td>
+          <td>Dělo střílí kamenné koule či kartáčové střely na okolní mapy. Dostřel je 15 map. Stavitel na 9. hodnosti může postavit jen jedno dělo na dané mapě v 6. levelu hradu či vesnice.</td>
+        </tr>
+        <tr>
+          <td>50.000</td>
+          <td>250.000</td>
+          <td>Dělo IV.</td>
+          <td>Dělo střílí kamenné koule či kartáčové střely na okolní mapy. Dostřel je 20 map. Stavitel na 9. hodnosti může postavit jen jedno dělo na dané mapě v 8. levelu hradu, ve vesnici nelze.</td>
+        </tr>
+        <tr>
+            <td>52.000</td>
+            <td>260.000</td>
+            <td>Zelený portálek</td>
+            <td>Umožní staviteli na hodnosti 9 postavit zelený portálek u tvého hradu či vesnice </td>
+          </tr>
+        <tr>
+          <td>60.000</td>
+          <td>300.000</td>
+          <td>Fara u kostela</td>
+          <td>Fara rozšíří kostel a to umožní, aby v něm bydleli dva léčitelé.</td>
+        </tr>
+        <tr>
+          <td>80.000</td>
+          <td>400.000</td>
+          <td>Tržiště +100K</td>
+          <td>Zvýší limit obchodování na tržišti o +100 000 zlatých. Od půlnoci.</td>
+        </tr>
+        <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Modrý zbrojnoš</td>
+          <td>V kasárnách jde verbovat modrý zbrojnoš.</td>
+        </tr>
+        <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Červený šermíř</td>
+          <td>V kasárnách jde verbovat červený šermíř.</td>
+        </tr>
+        <tr>
+          <td>100.000</td>
+          <td>500.000</td>
+          <td>Velká fara</td>
+          <td>Velká fara rozšíří kostel a to umožní, aby v něm bydleli tři léčitelé.</td>
+        </tr>
+        <tr>
+          <td>120.000</td>
+          <td>600.000</td>
+          <td>Dva katapulty</td>
+          <td>Umožní staviteli postavit u hradu i vesnic druhý katapult.</td>
+        </tr>
+        <tr>
+          <td>120.000</td>
+          <td>600.000</td>
+          <td>Zasouvací past</td>
+          <td>Stavitel na 9. levelu umí postavit zasouvací past.</td>
+        </tr>
+        <tr>
+          <td>150.000</td>
+          <td>750.000</td>
+          <td>Úplatkář V.</td>
+          <td>Šance na uplacení jednotek +50%. Možno sčítat s dalšími levely.</td>
+        </tr>
+        <tr>
+          <td>200.000</td>
+          <td>1.000.000</td>
+          <td>Šermíři dvojčata</td>
+          <td>V kasárnách jdou verbovat šermíři dvojčata.</td>
+        </tr>
+      </table>
+      
+      
+      
+</body>
+
+</body>
+</html>
