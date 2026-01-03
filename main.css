@@ -2,6 +2,7 @@
 
 /* Reset a základní styl */
 body, html {
+    overflow-x: hidden; /* zabraňuje horizontálnímu scrollu kvůli menu */
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -10,7 +11,7 @@ body, html {
 }
 
 /* Overlay pro obrázkové pozadí v hlavičce */
-.header-bg {
+.header-bg {    
     position: relative;
     background: url('vscode/obrázky/medieval-knights.jpg') center/cover no-repeat;
     height: 60vh;
@@ -56,11 +57,11 @@ body, html {
     z-index: 1000;
 }
 
-/* Vysouvací menu */
+/* Menu - skryté mimo obrazovku */
 #side-menu {
     position: fixed;
     top: 0;
-    right: -250px; /* stejná hodnota jako šířka menu */
+    right: -100%; /* úplně mimo obrazovku */
     width: 250px;
     height: 100%;
     background: #fff;
