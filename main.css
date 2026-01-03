@@ -1,38 +1,68 @@
-/* main.css */
+/* main.css - full-screen background + overlay + debug */
 
 /* Reset a základní styl */
-body, html {
-    overflow-x: hidden; /* zabraňuje horizontálnímu scrollu kvůli menu */
+html, body {
     margin: 0;
     padding: 0;
+    height: 100%; /* důležité pro full-screen background */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f0f0f0;
-    color: #222;
+    color: #fff;
+    overflow-x: hidden;
 }
 
-/* Overlay pro obrázkové pozadí v hlavičce */
-.header-bg {    
+/* Full-screen background s overlay */
+body {
+    /* overlay přímo v backgroundu */
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                url('images/medieval-knights.jpg') no-repeat center center fixed;
+    background-size: cover;
     position: relative;
-    background: url('vscode/obrázky/medieval-knights.jpg') center/cover no-repeat;
-    height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
+}
+
+/* Debug overlay - zkontroluje, jestli CSS je načtené a obrázek dostupný */
+body::after {
+    content: "DEBUG: body CSS funguje a overlay aktivní";
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 0.8rem;
+    color: yellow;
+    background: rgba(0,0,0,0.6);
+    padding: 2px 5px;
+    z-index: 9999;
+}
+
+/* Header */
+.header-bg {
+    padding: 60px 20px 40px 20px;
     text-align: center;
 }
-.header-bg::after {
-    content: "";
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0,0,0,0.5); /* tmavý overlay pro lepší čitelnost textu */
-}
+
 .header-bg h1 {
-    position: relative;
     font-size: 4rem;
-    z-index: 1;
+    margin: 0;
     text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+}
+
+/* Hlavní obsah */
+#content {
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    line-height: 1.6;
+    background: rgba(255,255,255,0.9);
+    color: #222;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 0.8rem;
 }
 
 /* Menu ikonka */
@@ -42,7 +72,7 @@ body, html {
     left: 15px;
     font-size: 2rem;
     cursor: pointer;
-    z-index: 1001;
+    z-index: 1003; /* nad overlay a menu */
 }
 
 /* Overlay při otevřeném menu */
@@ -54,17 +84,19 @@ body, html {
     height: 100%;
     background: rgba(0,0,0,0.5);
     display: none;
-    z-index: 1000;
+    z-index: 1001;
 }
 
-/* Menu - skryté mimo obrazovku */
+/* Vysouvací menu */
 #side-menu {
     position: fixed;
     top: 0;
-    right: -100%; /* úplně mimo obrazovku */
+    right: -100%;  /* úplně mimo obrazovku na startu */
     width: 250px;
+    max-width: 80%; /* mobilní úprava */
     height: 100%;
     background: #fff;
+    color: #222;
     box-shadow: -3px 0 10px rgba(0,0,0,0.2);
     transition: right 0.3s;
     z-index: 1002;
@@ -87,7 +119,6 @@ body, html {
     font-size: 1.2rem;
 }
 
-/* Tlačítko zavřít */
 #close-menu {
     cursor: pointer;
 }
@@ -100,11 +131,11 @@ body, html {
     color: #333;
     transition: color 0.2s;
 }
+
 .menu-content a:hover {
     color: #0077cc;
 }
 
-/* Kapitoly menu */
 .chapter-title {
     font-weight: bold;
     margin-top: 15px;
@@ -112,27 +143,21 @@ body, html {
     color: #555;
 }
 
-/* Hlavní obsah */
-#content {
-    max-width: 800px;
-    margin: 50px auto;
-    padding: 0 20px;
-    line-height: 1.6;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
+/* Responzivní úpravy pro mobil */
+@media (max-width: 600px) {
+    #side-menu {
+        width: 80%;
+    }
 
-/* Nadpisy v hlavním obsahu */
-#content h2 {
-    color: #0077cc;
-}
+    #menu-icon {
+        font-size: 2.5rem;
+    }
 
-/* Footer */
-footer {
-    text-align: center;
-    padding: 20px 0;
-    background: #222;
-    color: #fff;
-    position: relative;
+    .header-bg h1 {
+        font-size: 3rem;
+    }
+
+    #content {
+        padding: 15px;
+    }
 }
