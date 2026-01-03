@@ -2,21 +2,18 @@ import fetch from "node-fetch";
 import iconv from "iconv-lite";
 
 export default async function handler(req, res) {
-  const serverId = req.query.server;
+  const server = req.query.server;
 
-  if (!serverId || !["3", "4", "5", "6", "7"].includes(serverId)) {
+  if (!server || !["3","4","5","6","7"].includes(server)) {
     res.status(400).json({ error: "Neplatný server" });
     return;
   }
 
-  const url = `https://ph-tools-backend-psm4.vercel.app/api/server?server=${serverId}`;
-
   try {
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent": "Mozilla/5.0"
-      }
-    });
+    // URL původního backendu
+    const url = `https://ph-tools-backend-psm4.vercel.app/api/server?server=${server}`;
+
+    const response = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0" } });
 
     const buffer = Buffer.from(await response.arrayBuffer());
     const text = iconv.decode(buffer, "windows-1250");
