@@ -12,7 +12,7 @@ body, html {
 /* Overlay pro obrázkové pozadí v hlavičce */
 .header-bg {
     position: relative;
-    background: url('medieval-knights.jpg') center/cover no-repeat;
+    background: url('vscode/obrázky/medieval-knights.jpg') center/cover no-repeat;
     height: 60vh;
     display: flex;
     align-items: center;
