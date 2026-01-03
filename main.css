@@ -60,7 +60,7 @@ body, html {
 #side-menu {
     position: fixed;
     top: 0;
-    right: -250px;
+    right: -350px;
     width: 250px;
     height: 100%;
     background: #fff;
