@@ -49,17 +49,17 @@ menuToggle.addEventListener('click', () => {
 async function loadServerData(server) {
     content.innerHTML = '<h1>Načítám data serveru ' + server + '...</h1>';
     try {
-        // fetch na Váš veřejný backend na Vercelu
-        const res = await fetch(`https://ph-tools-backend-psm4.vercel.app/api/server?server=${server}`);
+        const res = await fetch(`https://PH-tools_backend.vercel.app/api/server?server=${server}`);
         if (!res.ok) throw new Error('Chyba při načítání dat z backendu');
-        const json = await res.json();
-        const lines = json.data;  // pole řádků
-        displayTables(lines.join('\n'));
+        const json = await res.json(); // JSON vrácený z Vercel API
+        console.log('API response:', json); // ← tady uvidíš, co API vrací
+        displayTables(json.data);  // předáme pole řádků do displayTables
     } catch(e) {
         content.innerHTML = '<h1>Chyba při načítání dat</h1>';
         console.error(e);
     }
 }
+
 
 
 // Zobrazení tabulek podle kapitol
