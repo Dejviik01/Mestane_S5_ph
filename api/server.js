@@ -9,7 +9,8 @@ export default async function handler(req, res) {
     return;
   }
 
-  const url = `https://www.panhradu.cz/globe_serialize.aspx?id_server=${server}`;
+  const res = await fetch(`https://ph-tools-backend-psm4.vercel.app/api/server?server=${server}`);
+
 
   try {
     const response = await fetch(url, {
